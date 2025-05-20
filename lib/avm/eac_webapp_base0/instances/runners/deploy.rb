@@ -19,14 +19,8 @@ module Avm
             bool_opt '--no-remote-write', 'Do not attempt to write on remote repository.'
           end
 
-          def deploy_class
-            runner_context.call(:stereotype_module).const_get('Instances').const_get('Deploy')
-          rescue ::NameError
-            runner_context.call(:stereotype_module).const_get('Deploy')
-          end
-
           def run
-            result = deploy_class.new(runner_context.call(:instance), deploy_options).run
+            result = runner_context.call(:instance).deploy_instance(deploy_options).run
             if result.error?
               fatal_error result.to_s
             else
