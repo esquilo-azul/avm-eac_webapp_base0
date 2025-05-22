@@ -26,9 +26,7 @@ module Avm
           end
 
           # @return [Class]
-          def apache_path_class
-            self.class.apache_path_class
-          end
+          delegate :apache_path_class, to: :class
 
           # @return [Avm::EacUbuntuBase0::Apache::Resource, nil]
           def apache_resource
