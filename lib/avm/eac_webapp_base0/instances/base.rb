@@ -14,6 +14,7 @@ module Avm
       class Base < ::Avm::Instances::Base
         require_sub __FILE__, include_modules: true
         include ::Avm::EacPostgresqlBase0::InstanceWith
+
         enable_simple_cache
 
         def run_subcommand(subcommand_class, argv)

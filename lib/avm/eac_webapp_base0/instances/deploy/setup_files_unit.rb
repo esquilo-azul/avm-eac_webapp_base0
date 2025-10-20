@@ -43,7 +43,7 @@ module Avm
           private
 
           # @return [Boolean]
-          def remove_target
+          def remove_target # rubocop:disable Naming/PredicateMethod
             instance.host_env.command('rm', '-rf', target_path).execute.fetch(:exit_code).zero?
           end
         end
